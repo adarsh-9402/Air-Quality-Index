@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AQI Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9cd76;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgb(152, 217, 241);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background: #df4353;
+            color: rgb(224, 241, 221);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Air Quality Index Predictor</h2>
+        <form method="POST">
+            <input type="text" name="pm25" placeholder="Enter PM2.5 value of your area" autofocus required><br>
+            <input type="text" name="pm10" placeholder="Enter PM10 value of your area" required><br>
+            <input type="text" name="no2" placeholder="Enter NO2 value of your area" required><br>
+            <button type="submit">Predict AQI Category</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                Predicted AQI Category: {{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
